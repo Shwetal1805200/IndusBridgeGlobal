@@ -1,0 +1,216 @@
+/* ═══════════════════════════════════════════════════
+   IndusBridge Global — Responsive Overrides
+   ═══════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 1280px) ── */
+@media (max-width: 1280px) {
+  .grid-12 { grid-template-columns: repeat(8, 1fr) !important; }
+  .grid-12 > [class*="span-7"] { grid-column: span 8 !important; }
+  .grid-12 > [class*="span-5"] { grid-column: span 8 !important; }
+  .grid-12 > [class*="span-8"] { grid-column: span 8 !important; }
+  .grid-12 > [class*="span-4"] { grid-column: span 4 !important; }
+
+  .r-2col { grid-template-columns: 1fr 1fr !important; }
+  .r-hero-split { grid-template-columns: 1fr !important; }
+  .r-story-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ── Tablet Small (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .section { padding: 4rem 0; }
+  .container { padding: 0 1.5rem; }
+
+  h1 { font-size: clamp(2.25rem, 6vw, 4rem) !important; }
+  h2 { font-size: clamp(1.75rem, 4vw, 2.5rem) !important; }
+
+  .r-2col { grid-template-columns: 1fr !important; }
+  .r-3col { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .r-4col { grid-template-columns: 1fr 1fr !important; }
+  .r-hero-split { grid-template-columns: 1fr !important; }
+  .r-story-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+  .r-contact-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
+  .r-blog-featured { grid-template-columns: 1fr !important; }
+  .r-blog-grid { grid-template-columns: 1fr 1fr !important; }
+  .r-form-2col { grid-template-columns: 1fr 1fr !important; }
+  .r-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .r-flex-wrap { flex-direction: column !important; }
+
+  /* Bento Grid */
+  .grid-12 { grid-template-columns: 1fr 1fr !important; }
+  .grid-12 > * { grid-column: span 1 !important; }
+  .grid-12 > .span-full { grid-column: span 2 !important; }
+
+  /* Product Grid */
+  .r-product-grid { grid-template-columns: 1fr 1fr !important; }
+  .r-product-grid > * { grid-column: span 1 !important; }
+
+  /* Onboarding Grid */
+  .r-onboard-grid { grid-template-columns: 1fr 1fr !important; }
+  .r-onboard-grid > * { grid-column: span 1 !important; }
+  .r-onboard-grid > .onboard-wide { grid-column: span 2 !important; }
+
+  /* Trust strip */
+  .trust-strip-inner { 
+    justify-content: center !important; 
+    gap: 1.5rem !important;
+  }
+
+  /* Process steps */
+  .r-process { grid-template-columns: 1fr 1fr !important; }
+
+  /* Values triptych */
+  .r-values { grid-template-columns: 1fr !important; background: none !important; gap: 1rem !important; }
+  .r-values > * { border-bottom: 1px solid rgba(201,197,203,0.15); }
+
+  /* Principles */
+  .r-principles { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Footer */
+  .footer-grid { 
+    grid-template-columns: 1fr 1fr !important; 
+    gap: 2rem !important; 
+  }
+
+  /* Market cards */
+  .r-markets { grid-template-columns: 1fr 1fr !important; }
+
+  /* Specs row */
+  .r-specs { grid-template-columns: 1fr 1fr !important; }
+
+  /* Vision flex */
+  .r-vision { flex-direction: column !important; gap: 3rem !important; }
+  .r-vision > * { min-width: 0 !important; }
+
+  /* Left column padding on contact */
+  .r-contact-left { padding: 3rem 0 !important; }
+
+  /* CTA dark box */
+  .r-cta-dark { flex-direction: column !important; text-align: center; gap: 2rem !important; }
+
+  /* Distributor hero side data */
+  .r-dist-values { grid-template-columns: 1fr !important; }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+
+  .container { padding: 0 1.25rem; }
+
+  h1 { font-size: clamp(2rem, 8vw, 3rem) !important; line-height: 0.95 !important; }
+  h2 { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
+  h3 { font-size: clamp(1.25rem, 3vw, 1.5rem) !important; }
+
+  .r-2col, .r-3col, .r-4col { grid-template-columns: 1fr !important; }
+  .r-form-2col { grid-template-columns: 1fr !important; }
+  .r-blog-grid { grid-template-columns: 1fr !important; }
+  .r-markets { grid-template-columns: 1fr !important; }
+  .r-process { grid-template-columns: 1fr !important; }
+  .r-specs { grid-template-columns: 1fr !important; }
+  .r-stats-grid { grid-template-columns: 1fr !important; }
+
+  /* Bento Grid full stack */
+  .grid-12 { grid-template-columns: 1fr !important; }
+  .grid-12 > * { grid-column: span 1 !important; }
+
+  /* Product Grid */
+  .r-product-grid { grid-template-columns: 1fr !important; }
+  .r-product-grid > * { grid-column: span 1 !important; }
+
+  /* Onboarding Grid */
+  .r-onboard-grid { grid-template-columns: 1fr !important; }
+  .r-onboard-grid > * { grid-column: span 1 !important; }
+
+  /* Blog featured */
+  .r-blog-featured { grid-template-columns: 1fr !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .footer-grid { padding: 3rem 1.5rem !important; }
+  .footer-bottom { padding: 1.5rem !important; }
+
+  /* CTA buttons */
+  .r-cta-buttons { 
+    flex-direction: column !important; 
+    width: 100% !important;
+    align-items: stretch !important;
+  }
+  .r-cta-buttons .btn { width: 100% !important; justify-content: center !important; }
+
+  /* Section padding */
+  .r-section { padding: 4rem 0 !important; }
+  .r-section-lg { padding: 5rem 0 !important; }
+
+  /* Hero padding */
+  .r-hero { padding: 4rem 1.25rem !important; min-height: auto !important; }
+  .r-hero h1 { margin-bottom: 1.5rem !important; }
+
+  /* Contact form */
+  .r-contact-grid { min-height: auto !important; }
+  .r-contact-left { padding: 3rem 0 2rem !important; }
+  .r-contact-right { padding: 2rem 1.5rem !important; }
+
+  /* Trust strip items */
+  .trust-strip-inner { 
+    flex-direction: column !important; 
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  /* Nav inner */
+  .nav-inner { padding: 0.75rem 1.25rem !important; }
+  .nav-logo { font-size: 1.25rem !important; }
+
+  /* Glass panel overlays — keep visible but reposition */
+  .glass-panel { position: relative !important; margin: 0 !important; }
+
+  /* Process step numbers */
+  .process-step { min-height: auto !important; }
+
+  /* Market card code */
+  .market-card { padding: 2rem !important; }
+  .market-card-code { font-size: 2rem !important; }
+
+  /* Bento card padding */
+  .bento-card { padding: 2rem !important; }
+
+  /* Product card info */
+  .product-card-info { padding: 1.5rem !important; }
+
+  /* Route indicator */
+  .route-indicator { flex-direction: row !important; }
+
+  /* Ledger field adjustments */
+  .ledger-field input, .ledger-field select {
+    font-size: 1rem !important;
+  }
+
+  /* Mobile-specific spacing */
+  .r-mb-sm { margin-bottom: 1rem !important; }
+  .r-mb-md { margin-bottom: 2rem !important; }
+  .r-mb-lg { margin-bottom: 3rem !important; }
+  .r-gap-sm { gap: 1rem !important; }
+  .r-gap-md { gap: 2rem !important; }
+
+  /* Hide on mobile */
+  .r-hide-mobile { display: none !important; }
+
+  /* Product card flex layout on mobile */
+  .r-product-info { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+}
+
+/* ── Small Mobile (≤ 480px) ── */
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+
+  h1 { font-size: clamp(1.75rem, 10vw, 2.5rem) !important; }
+  
+  .container { padding: 0 1rem; }
+
+  .btn { padding: 0.75rem 1.5rem !important; font-size: 0.8125rem !important; }
+  .btn-lg { padding: 0.875rem 2rem !important; font-size: 0.875rem !important; }
+
+  .r-contact-right { padding: 1.5rem 1rem !important; }
+
+  .nav-inner { padding: 0.625rem 1rem !important; }
+}

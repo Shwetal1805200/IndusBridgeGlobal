@@ -1,0 +1,159 @@
+/* ═══════════════════════════════════════════════════
+   IndusBridge Global — Animations
+   ═══════════════════════════════════════════════════ */
+
+/* ── Reveal Animations (GSAP controlled) ── */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.reveal-fade {
+  opacity: 0;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* ── Split Text (letters/words start hidden) ── */
+.split-headline .word,
+.split-headline .char {
+  opacity: 0;
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+/* ── Page Transition ── */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Stagger Children ── */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ── Hover Animations ── */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-out),
+              box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Image Grayscale Toggle ── */
+.img-grayscale {
+  filter: grayscale(100%);
+  transition: filter var(--duration-slower) var(--ease-out);
+}
+
+.img-grayscale:hover {
+  filter: grayscale(0%);
+}
+
+/* ── Animate Underline on Hover ── */
+.animate-underline {
+  position: relative;
+}
+
+.animate-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+.animate-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Pulse Dot ── */
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(253, 190, 87, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(253, 190, 87, 0);
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+/* ── Counter Number ── */
+.counter-number {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Map Background ── */
+.map-bg {
+  background-blend-mode: overlay;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+}
+
+/* ── Shimmer Effect ── */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(253, 190, 87, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* ── Hero Text Gradient ── */
+.text-gradient-gold {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Floating Animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 4s var(--ease-in-out) infinite;
+}

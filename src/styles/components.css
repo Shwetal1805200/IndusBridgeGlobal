@@ -1,0 +1,533 @@
+/* ═══════════════════════════════════════════════════
+   IndusBridge Global — Component Styles
+   ═══════════════════════════════════════════════════ */
+
+/* ── Glass Navigation ── */
+.glass-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-nav);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201, 197, 203, 0.15);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.glass-nav.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.04);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+.nav-logo {
+  font-family: var(--font-headline);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-family: var(--font-headline);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #52525b;
+  letter-spacing: -0.01em;
+  transition: color var(--duration-normal) var(--ease-out);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--secondary);
+}
+
+.nav-link.active {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f59e0b;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ── Mobile Menu ── */
+.mobile-toggle {
+  display: none;
+  background: none;
+  padding: 0.5rem;
+  color: var(--primary);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-menu a {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.mobile-menu a:hover {
+  color: var(--secondary-container);
+}
+
+.mobile-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-normal) var(--ease-out);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.btn-primary:hover {
+  background-color: #27272a;
+}
+
+.btn-secondary {
+  background-color: var(--surface-container-highest);
+  color: var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-variant);
+}
+
+.btn-gold {
+  background: var(--gold-gradient);
+  color: var(--on-primary);
+  box-shadow: 0 10px 30px rgba(127, 86, 0, 0.25);
+}
+
+.btn-gold:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 40px rgba(127, 86, 0, 0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--on-primary);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-lg {
+  padding: 1.125rem 3rem;
+  font-size: 1rem;
+}
+
+.btn-sm {
+  padding: 0.625rem 1.5rem;
+  font-size: 0.8125rem;
+}
+
+/* ── Glass Panel ── */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Gold Gradient ── */
+.gold-gradient {
+  background: var(--gold-gradient);
+}
+
+/* ── Trust Strip ── */
+.trust-strip {
+  background-color: var(--primary);
+  padding: var(--space-12) 0;
+}
+
+.trust-strip-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.trust-item .material-symbols-outlined {
+  color: var(--secondary-container);
+}
+
+.trust-item span:last-child {
+  font-family: var(--font-headline);
+  color: white;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* ── Bento Grid ── */
+.bento-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.bento-card {
+  padding: 2.5rem;
+  transition: all var(--duration-slow) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card-light {
+  background-color: var(--surface-container-lowest);
+}
+
+.bento-card-dark {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.bento-card-gold {
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+}
+
+.bento-card-muted {
+  background-color: var(--surface-container-highest);
+}
+
+/* ── Section Label ── */
+.section-label {
+  font-family: var(--font-mono);
+  color: var(--secondary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ── Product Card ── */
+.product-card {
+  background-color: var(--surface-container-low);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slower) var(--ease-out);
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-card-info {
+  padding: 2rem;
+}
+
+/* ── Input Fields (Minimalist Ledger) ── */
+.ledger-field {
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.ledger-field label {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--outline);
+  position: absolute;
+  top: -0.75rem;
+  left: 0;
+}
+
+.ledger-field input,
+.ledger-field select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(121, 118, 124, 0.4);
+  padding: 0.5rem 0;
+  font-family: var(--font-headline);
+  font-size: 1.125rem;
+  color: var(--primary);
+  background: transparent;
+  transition: border-color var(--duration-normal) var(--ease-out);
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.ledger-field input::placeholder {
+  color: #d4d4d8;
+}
+
+.ledger-field input:focus,
+.ledger-field select:focus {
+  border-bottom-color: var(--secondary);
+}
+
+/* ── Market Card ── */
+.market-card {
+  background-color: var(--surface);
+  padding: 2.5rem;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.market-card:hover {
+  background-color: var(--primary);
+  color: var(--on-primary);
+}
+
+.market-card:hover p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.market-card:hover .market-label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.market-card-code {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 1.5rem;
+}
+
+.market-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+  transition: color var(--duration-normal) var(--ease-out);
+}
+
+/* ── Process Step ── */
+.process-step {
+  position: relative;
+  background-color: var(--surface-container-low);
+  padding: 2rem;
+  padding-top: 4rem;
+}
+
+.process-step-number {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-mono);
+  font-size: 3.5rem;
+  color: rgba(201, 197, 203, 0.3);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.process-step h4,
+.process-step p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Footer ── */
+.site-footer {
+  background-color: #09090b;
+  color: white;
+  border-top: 1px solid #27272a;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 4rem 3rem;
+}
+
+.footer-brand p {
+  color: #71717a;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-top: 1.5rem;
+}
+
+.footer-heading {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #71717a;
+  font-size: 0.875rem;
+  transition: color var(--duration-normal);
+}
+
+.footer-links a:hover {
+  color: #fbbf24;
+}
+
+.footer-bottom {
+  border-top: 1px solid #18181b;
+  padding: 2rem 3rem;
+}
+
+.footer-bottom-inner {
+  max-width: 1536px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copyright {
+  color: #52525b;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Route Indicator ── */
+.route-indicator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.route-indicator .route-label {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.route-indicator .route-track {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--outline-variant);
+  position: relative;
+}
+
+.route-indicator .route-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 66%;
+  background-color: var(--secondary);
+}
+
+.route-indicator .route-dot {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(127, 86, 0, 0.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .nav-actions .btn:first-child { display: none; }
+  .mobile-toggle { display: block; }
+  .mobile-menu { display: flex; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.25rem; }
+  .trust-strip-inner { justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .nav-inner { padding: 0.75rem 1.25rem; }
+}
