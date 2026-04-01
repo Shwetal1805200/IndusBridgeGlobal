@@ -14,6 +14,8 @@ import { renderProductsPage } from './pages/products.js';
 import { renderDistributorPage } from './pages/distributor.js';
 import { renderContactPage, initContactForm } from './pages/contact.js';
 import { renderBlogPage, initBlogPage } from './pages/blog.js';
+import { renderAdminLoginPage, initAdminLogin } from './pages/admin-login.js';
+import { renderDashboardPage, initDashboard } from './pages/dashboard.js';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -147,11 +149,18 @@ const routes = [
   { path: '/distributor-program', render: renderDistributorPage },
   { path: '/contact', render: renderContactPage },
   { path: '/blog', render: renderBlogPage },
+  { path: '/IBGAdminPg', render: renderAdminLoginPage, hideShell: true },
+  { path: '/IBGDashboard', render: renderDashboardPage, hideShell: true },
 ];
 
 // ── Initialize Router ──
 const router = new Router(routes, pageContent);
-router.onNavigate = (path) => {
+router.onNavigate = (path, hideShell) => {
+  // Show/hide nav & footer for admin pages
+  const isHidden = hideShell === true;
+  navEl.style.display = isHidden ? 'none' : '';
+  footerEl.style.display = isHidden ? 'none' : '';
+
   // Scroll to top via Lenis
   lenis.scrollTo(0, { immediate: true });
   // Re-init animations for new page content
@@ -160,6 +169,8 @@ router.onNavigate = (path) => {
     // Page-specific initializers
     if (path === '/contact') initContactForm();
     if (path === '/blog') initBlogPage();
+    if (path === '/IBGAdminPg') initAdminLogin();
+    if (path === '/IBGDashboard') initDashboard();
   }, 50);
 };
 

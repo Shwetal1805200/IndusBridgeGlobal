@@ -214,3 +214,87 @@
 
   .nav-inner { padding: 0.625rem 1rem !important; }
 }
+
+/* ═══════════════════════════════════════════════════
+   Admin Login & Dashboard Responsive
+   ═══════════════════════════════════════════════════ */
+
+/* Pulse animation for server status dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ── Tablet (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  .admin-login-card {
+    grid-template-columns: 1fr !important;
+    max-width: 520px !important;
+  }
+  .admin-login-hero {
+    display: none !important;
+  }
+  .admin-login-nav > div:nth-child(2) {
+    display: none !important;
+  }
+
+  /* Indus Meridian Dashboard */
+  .idm-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.3);
+  }
+  .idm-dashboard > div:nth-child(2) {
+    margin-left: 0 !important;
+  }
+  .idm-menu-toggle {
+    display: flex !important;
+  }
+  .idm-analytics-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .idm-topbar > div:nth-child(2) {
+    display: none !important;
+  }
+}
+
+/* ── Mobile (≤ 768px) ── */
+@media (max-width: 768px) {
+  .admin-login-card {
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+  .admin-login-form-panel {
+    padding: 2rem 1.5rem !important;
+  }
+  .admin-login-nav {
+    padding: 1rem 1.25rem !important;
+  }
+  .admin-login-footer {
+    flex-direction: column !important;
+    text-align: center !important;
+    padding: 1rem 1.25rem !important;
+  }
+  .admin-login-footer > div {
+    justify-content: center !important;
+  }
+
+  /* Indus Meridian Dashboard mobile */
+  .idm-topbar {
+    flex-wrap: wrap !important;
+    padding: 0.75rem 1rem 0.75rem 3.5rem !important;
+    gap: 0.5rem !important;
+  }
+  .idm-topbar > div:last-child {
+    display: none !important;
+  }
+  .idm-dashboard main {
+    padding: 1.25rem !important;
+  }
+  .idm-dashboard footer {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    text-align: center !important;
+  }
+}
+

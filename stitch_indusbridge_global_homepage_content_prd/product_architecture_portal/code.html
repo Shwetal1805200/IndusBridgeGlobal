@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Architecture | Indus Meridian</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#000000",
+                        "on-primary": "#ffffff",
+                        "secondary": "#7f5600",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1c1b22",
+                        "secondary-fixed-dim": "#fabc55",
+                        "surface": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-fixed": "#281800",
+                        "on-primary-container": "#86828c",
+                        "inverse-on-surface": "#f1f1f1",
+                        "on-surface-variant": "#48464b",
+                        "outline-variant": "#c9c5cb",
+                        "inverse-primary": "#c9c5d0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#4d82de",
+                        "secondary-fixed": "#ffddae",
+                        "on-tertiary-fixed-variant": "#004492",
+                        "surface-container": "#eeeeee",
+                        "surface-dim": "#dadada",
+                        "primary-container": "#1c1b22",
+                        "on-secondary-container": "#724d00",
+                        "surface-tint": "#605d66",
+                        "on-secondary-fixed-variant": "#604000",
+                        "primary-fixed-dim": "#c9c5d0",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3131",
+                        "primary": "#000000",
+                        "background": "#f9f9f9",
+                        "tertiary-container": "#001a41",
+                        "tertiary-fixed": "#d8e2ff",
+                        "on-surface": "#1a1c1c",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "primary-fixed": "#e5e0ec",
+                        "tertiary-fixed-dim": "#acc7ff",
+                        "on-tertiary-fixed": "#001a41",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-highest": "#e2e2e2",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fdbe57",
+                        "outline": "#79767c",
+                        "on-primary-fixed-variant": "#48454f"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "technical": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Editorial Shadows */
+        .tonal-lift {
+            box-shadow: 0 30px 60px -15px rgba(26, 28, 28, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed-dim selection:text-on-secondary-fixed">
+<!-- SIDEBAR NAVIGATION -->
+<aside class="fixed left-0 top-0 h-full w-72 bg-zinc-950 flex flex-col h-full py-8 border-r border-zinc-800 shadow-[20px_0_60px_-15px_rgba(0,0,0,0.3)] z-50">
+<div class="px-8 mb-12">
+<h1 class="text-lg font-black text-white uppercase tracking-[0.2em] font-headline">Indus Meridian</h1>
+<p class="font-['Space_Grotesk'] text-[10px] tracking-widest text-zinc-500 uppercase mt-1">Global Sovereign Ledger</p>
+</div>
+<nav class="flex-1 font-['Space_Grotesk'] text-sm tracking-wide">
+<a class="flex items-center gap-4 text-zinc-400 py-4 px-8 hover:bg-zinc-800/50 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-4 bg-gradient-to-r from-amber-500/10 to-transparent text-amber-500 border-r-2 border-amber-500 py-4 px-8 Active: translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-400 py-4 px-8 hover:bg-zinc-800/50 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span>Blog</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-400 py-4 px-8 hover:bg-zinc-800/50 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-8 mt-auto pt-8 border-t border-zinc-800">
+<button class="w-full bg-secondary py-3 px-4 text-on-primary font-headline font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 mb-8">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Shipment
+            </button>
+<div class="space-y-4 font-['Space_Grotesk'] text-xs tracking-wide">
+<a class="flex items-center gap-4 text-zinc-400 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-4 text-zinc-400 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Sign Out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TOP NAVIGATION BAR -->
+<header class="fixed top-0 right-0 w-[calc(100%-280px)] z-40 bg-white/80 backdrop-blur-xl flex justify-between items-center px-12 h-20">
+<div class="flex items-center gap-8">
+<h2 class="font-['Space_Grotesk'] tracking-tight text-xl font-bold tracking-tighter uppercase text-zinc-900">Product Architecture</h2>
+<div class="h-4 w-px bg-zinc-200"></div>
+<div class="flex items-center gap-6 font-['Space_Grotesk'] tracking-tight">
+<a class="text-amber-600 font-bold underline decoration-2 underline-offset-8" href="#">Editor</a>
+<a class="text-zinc-500 font-medium hover:text-amber-600 transition-colors duration-300" href="#">Catalog</a>
+<a class="text-zinc-500 font-medium hover:text-amber-600 transition-colors duration-300" href="#">Archive</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-zinc-400 group-hover:text-zinc-900 transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-secondary rounded-full"></span>
+</div>
+<span class="material-symbols-outlined text-zinc-400 hover:text-zinc-900 transition-colors cursor-pointer" data-icon="help">help</span>
+<button class="bg-primary text-on-primary px-5 py-2 text-xs font-headline font-bold uppercase tracking-widest flex items-center gap-2 hover:scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+                Add Lead
+            </button>
+<div class="w-10 h-10 bg-zinc-100 overflow-hidden">
+<img alt="Executive Profile" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional executive in a minimal grey studio background with soft architectural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7tWMS4m1m9YpauhRp2pgorFYue6smbJh7-aBoSCWxN1yyN742VD1HkMufoXd8RgJA1dSvnYYh8CK_M17-2HNRTibdPGShac6wyiLTf5MOtPaDU4G0Al93vwM-j0xt75x8V8fJOE4BTQfX7opy2ffedXHGZHQTMOiFd5A3gDDjjW72ENuZymhEchPoXUScP1D18kNsC_pd0W46DxXiqyuh5KWckPNaLyahlVRj6kR1ZENW4UG4thqVXk7Yd1B4_c1djFlWxKj66PRN"/>
+</div>
+</div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="ml-72 pt-20 min-h-screen">
+<div class="max-w-7xl mx-auto p-12">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- LEFT COLUMN: PRODUCT ENTRY FORM -->
+<div class="flex-1 space-y-12">
+<section>
+<header class="mb-8">
+<span class="font-technical text-[10px] text-secondary font-bold tracking-widest uppercase">Product Registry — Step 01</span>
+<h3 class="font-headline text-3xl font-bold tracking-tight text-primary mt-2">Product Core Attributes</h3>
+</header>
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+<div class="flex flex-col">
+<label class="font-technical text-[10px] text-outline tracking-wider uppercase mb-2">Product Identity</label>
+<input class="bg-transparent border-b border-outline/40 focus:border-secondary outline-none py-2 font-headline text-lg transition-colors placeholder:text-zinc-300" placeholder="e.g., Oud Al-Sultan Premium" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-technical text-[10px] text-outline tracking-wider uppercase mb-2">Category Segment</label>
+<select class="bg-transparent border-b border-outline/40 focus:border-secondary outline-none py-2 font-body text-sm transition-colors appearance-none">
+<option>Incense &amp; Bukhoor</option>
+<option>Home Fragrance</option>
+<option>Essential Oils</option>
+<option>Technical Apparatus</option>
+</select>
+</div>
+<div class="flex flex-col">
+<label class="font-technical text-[10px] text-outline tracking-wider uppercase mb-2">Internal SKU ID</label>
+<input class="bg-transparent border-b border-outline/40 focus:border-secondary outline-none py-2 font-technical text-sm transition-colors placeholder:text-zinc-300" placeholder="IB-7700-DXB" type="text"/>
+</div>
+<div class="flex flex-col">
+<label class="font-technical text-[10px] text-outline tracking-wider uppercase mb-2">Harmonized Export Code</label>
+<input class="bg-transparent border-b border-outline/40 focus:border-secondary outline-none py-2 font-technical text-sm transition-colors placeholder:text-zinc-300" placeholder="HS 3307.41.00" type="text"/>
+</div>
+</div>
+<div class="flex flex-col">
+<label class="font-technical text-[10px] text-outline tracking-wider uppercase mb-2">Editorial Narrative / Description</label>
+<textarea class="bg-surface-container-low border-none focus:ring-0 focus:bg-surface-container p-6 font-body text-sm leading-relaxed resize-none transition-colors placeholder:text-zinc-400" placeholder="Enter high-end product copy here..." rows="5"></textarea>
+<div class="flex gap-4 mt-2 justify-end">
+<button class="text-[10px] font-technical uppercase text-outline hover:text-primary transition-colors" type="button">Bold</button>
+<button class="text-[10px] font-technical uppercase text-outline hover:text-primary transition-colors" type="button">Italic</button>
+<button class="text-[10px] font-technical uppercase text-outline hover:text-primary transition-colors" type="button">Insert Link</button>
+</div>
+</div>
+</form>
+</section>
+<!-- MEDIA ASSET MANAGER -->
+<section class="p-8 border-2 border-dashed border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex items-start justify-between mb-8">
+<div>
+<h3 class="font-headline text-xl font-bold tracking-tight text-primary">Media Asset Repository</h3>
+<p class="text-xs text-outline mt-1">High-resolution imagery and technical CAD schemas.</p>
+</div>
+<span class="material-symbols-outlined text-outline/40 text-4xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<!-- Image Slot -->
+<div class="aspect-square bg-surface-container border border-outline-variant/20 relative group overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist glass jar of high-end perfume against a soft beige limestone background with hard shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDos92qHPDfplmYa4s0AYLOgMt_g6sBh9QBzaxxtAbad5l0IwZRVZoqT6F1CnQw5tVPD0BQ58KMe5jgiCPEMVvTXFU3covP8jQ3hHeMAkWAAZH-V6H5VmYl7IhtBg0sVdRcJOLaKiZ-D4DBn38EgFcVr1lUggumzzDV8HhYqBV-J7xiAaPeTCNqKxyREgI669fkfvcWaTW1L9RQ5dXlWQWPdaF84vRxaWFtloAtZJr0VkIq_zUMC58g0AaMFrPqYk7pCwzDq9HwaD4"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="delete">delete</span>
+</div>
+</div>
+<!-- Upload Slot -->
+<div class="aspect-square border border-dashed border-outline-variant/50 flex flex-col items-center justify-center gap-2 hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-secondary" data-icon="add">add</span>
+<span class="font-technical text-[10px] text-outline tracking-wider uppercase">Add Asset</span>
+</div>
+</div>
+<div class="mt-8 space-y-3">
+<div class="flex items-center justify-between p-4 bg-white border-l-2 border-secondary tonal-lift">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-zinc-400" data-icon="picture_as_pdf">picture_as_pdf</span>
+<div>
+<p class="text-xs font-bold font-headline">Technical_Specs_Oud_Sultan_V4.pdf</p>
+<p class="text-[10px] font-technical text-outline uppercase">2.4 MB • Complete</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline/40 hover:text-error transition-colors cursor-pointer" data-icon="close">close</span>
+</div>
+</div>
+</section>
+<div class="flex justify-end gap-6 pt-4">
+<button class="px-8 py-4 text-xs font-headline font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors">Discard Draft</button>
+<button class="px-12 py-4 bg-gradient-to-r from-secondary to-secondary-container text-on-primary font-headline font-bold uppercase tracking-widest shadow-xl hover:scale-[1.02] transition-transform">Save Product to Ledger</button>
+</div>
+</div>
+<!-- RIGHT COLUMN: PRODUCT INVENTORY PREVIEW (AS SIDEBAR) -->
+<aside class="w-full lg:w-96 space-y-8">
+<div class="sticky top-32">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline text-lg font-bold tracking-tight text-primary">Recent Archive</h3>
+<button class="text-[10px] font-technical uppercase tracking-widest text-secondary font-bold">View All</button>
+</div>
+<div class="space-y-6">
+<!-- High End Product Card 1 -->
+<div class="group relative bg-white overflow-hidden border-b border-transparent hover:border-secondary transition-all duration-500">
+<div class="aspect-[4/3] w-full bg-zinc-100 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Artistic composition of burning sandalwood incense sticks with delicate smoke spirals in a dark mood-lit studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcQBdflDh90fzIEwmRB3NNBXlWLNBqKiMZSJsYN4No5VT8TaHVx1A-04FxfQ1SZeLr2yLAo4HXCoPHDRdPfjttjQNpUJDTKR3K9xW2SBfYUKiUwuVfDwwXAlII79h__Fuf9_4RfyMnz9sp-2KBM8Ztlwb6QL-FVVZQDg54j6oJatI_FgNWj7OnivCv80DEiWIg_MefqiGJosm-hRFNd2I-J54dEn1iDaRUAKASUej6IUq1xYbsIcp3qRN9ciCLuDxfJBZGT3CNnlIe"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<span class="font-technical text-[9px] text-secondary font-bold tracking-[0.2em] uppercase">Incense</span>
+<span class="font-technical text-[9px] text-outline">SKU: IND-990</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-primary group-hover:text-secondary transition-colors">Royal Sandalwood Sticks</h4>
+<p class="text-xs text-outline mt-2 leading-relaxed line-clamp-2 italic">A premium blend of vintage sandalwood and desert resins, crafted for high-end hospitality spaces.</p>
+<div class="mt-4 flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</div>
+</div>
+</div>
+<!-- High End Product Card 2 -->
+<div class="group relative bg-white overflow-hidden border-b border-transparent hover:border-secondary transition-all duration-500">
+<div class="aspect-[4/3] w-full bg-zinc-100 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Sophisticated black ceramic oil diffuser on a raw concrete surface with a single spotlight and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgpJovcQS4PJTNPwMZQpTwWKxLwMRMMhLLhG_-kChTzkLR8twnmrdpLwfuA6lfFOU1xXuTzvkEImFZpv2DzVb8J3q8LwOlsBHDHZNZyK-YgL_hCXoNeECB6Mrx3eT2XAorgNXWEJaer0ENIWVSeYac8VIJa0wDlH6U1JB-iQ_5_PhkFE7LuVVIgnliJWkja2lDwLTy-03zi-n2t2wUQo8s-w5Bw-dCdBlvJT9geDKPebwWkgNPgQmbgPa-1af0CfnLfsYdCMS6qLh-"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<span class="font-technical text-[9px] text-secondary font-bold tracking-[0.2em] uppercase">Fragrance</span>
+<span class="font-technical text-[9px] text-outline">SKU: IND-441</span>
+</div>
+<h4 class="font-headline text-lg font-bold text-primary group-hover:text-secondary transition-colors">Nebula Oil Diffuser</h4>
+<p class="text-xs text-outline mt-2 leading-relaxed line-clamp-2 italic">Ultrasonic cold-air nebulizer designed for commercial luxury suites and executive lounges.</p>
+<div class="mt-4 flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+<span class="material-symbols-outlined text-sm" data-icon="share">share</span>
+</div>
+</div>
+</div>
+</div>
+<!-- World Map Texture (Asymmetric Detail) -->
+<div class="mt-16 opacity-10 grayscale select-none pointer-events-none">
+<img alt="Global Trade Texture" class="w-full" data-alt="Monochromatic technical world map with subtle data lines and connecting points on a light grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDUxiCjgZrp7lFk3miv7ag6iFy8nqTQzgjPj7Gh6X1GYi0f-PSposxL6jcrlgChEX4xP2ZgeWFD_rAYH5BdLHbJErqsCuanVGYfiOMUVT3ZZxhZkFZEPpKFAPDtzyuglWf1s7aetTvMgahlZ9P_j1z-iGxFCUmiC0fbljz2vHJWTod42bkTWKDwdz2A2lLiugXgojOHt72Qf-ov7r_m3oc5wVQOuqxZyh9EBJJ-JSc390qAwMzdtmbVn1K8qxT1-2K66WVmNCWXSaJ"/>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- FLOATING ROUTE INDICATOR (Custom Component) -->
+<div class="fixed bottom-12 left-1/2 -translate-x-1/2 bg-zinc-950 px-8 py-4 flex items-center gap-8 shadow-2xl z-50">
+<div class="flex flex-col">
+<span class="font-technical text-[9px] text-zinc-500 uppercase tracking-tighter">Current Path</span>
+<span class="font-technical text-xs text-amber-500 font-bold uppercase">MUMBAI → DUBAI → LONDON</span>
+</div>
+<div class="h-8 w-px bg-zinc-800"></div>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1 bg-zinc-800 relative">
+<div class="absolute left-0 top-0 h-full w-2/3 bg-amber-500"></div>
+</div>
+<span class="font-technical text-[10px] text-white">68% SYNC</span>
+</div>
+</div>
+</body></html>

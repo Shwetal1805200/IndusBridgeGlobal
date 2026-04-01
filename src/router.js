@@ -35,7 +35,7 @@ export class Router {
 
       // Fire navigation callback (for GSAP re-init)
       if (this.onNavigate) {
-        setTimeout(() => this.onNavigate(route.path), 100);
+        setTimeout(() => this.onNavigate(route.path, route.hideShell), 100);
       }
 
       // Scroll to top
